@@ -1,40 +1,108 @@
 <!doctype html>
 <html lang = "ru">
     <head> 
-        <link rel="stylesheet" href="e-dracheva/e-dracheva.github.io/style.css">
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Monsterrat:wght@200;500&display=swap');
+        
+        * {
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }        
+        
+        body {
+            font-family: 'Monsterrat', san-serif;
+            font-weight:200;
+            color: var(--tg-theme-text-color);
+            background: var(--tg-theme-text-color);
+        }
+        
+        #main {
+            width:100%;
+            padding:20px;
+            text-align: center;
+        }
+        
+        #form {
+            display:none;
+            text-align: canter;
+        }
+        
+        h1 {
+            margin-top:70px;
+            margin-botton: 10px;
+        }
+        
+        img {
+            width:70px;
+            margin: 30px auto;
+        }
+        
+        p {
+            width:350px;
+            margin: 0 auto;        
+        }
+        
+        botton {
+            border: 0;
+            border-radius: 5px;
+            margin-top: 50px;
+            height: 60px;
+            width: 200px;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 500ms ease;
+            color: var(--tg-theme-text-color);
+            background: var(--tg-theme-text-color);
+        }
+        
+        button:hover {
+            background: var(--tg-theme-text-color);
+        }
+        
+        input {
+            width: 90%;
+            outline: none;
+            margin: 10px 5%;
+            padding: 15px 10px;
+            font-size: 14px;
+            border: 2px solid silver;
+            border-radius:5px;
+        }
+        
+        
+        input:focus {
+            border-color: #db5d5d;
+        
+        }
+        
+        </style>
     </head>
     <body>
-            <form id="form" action="" class="railway">
-                <div class="stripes-block">
-                    <div class="line"></div>
-                </div>
-                <h3>Информация о покупателе</h3>
-                <div class="form-group">
-                    <input type="text" id="name" required><label for="name">Имя</label>
-                    <input type="email" id="email" required><label for="email">Email</label>
-                    <input type="text" id="phone" required><label for="phone">Номер телефона</label>
-                </div>
-                <div class="submit-block">
-                    <div class="submit-button">
-                        <i class="fa fa-train" aria-hidden="true"></i><br>
-                        <button id="buy">Купить</button>
-                    </div>
-                </div>
-            </form>
-            <div id="order">
-                <h1>Спасибо за покупку!</h1>
-                <button id="close">Закрыть</buttom>
-            </div>
+        <div id="main">
+            <h1>Онлайн магазин</h1>
+            <img >
+            <p>Можете купить эту игру</p>
+            <button id="buy">Купить</buttom>
+        </div>
+        <form id="form">
+            <input type="text" id="name" required><label for="name">Имя</label>
+            <input type="email" id="email" required><label for="email">Email</label>
+            <input type="text" id="phone" required><label for="phone">Номер телефона</label>
+            <button id="order">Оформить</buttom> 
+        </form>
+
      <script src="https://telegram.org/js/telegram-web-app.js"></script>
      <script>
          let tg=window.Telegram.WebApp;
          let buy= document.getElementById("buy")
          let order= document.getElementById("order")
-         let close= document.getElementById("close")
+
          
          buy.addEventListener("click", ()=> {
-             document.getElementById("form").style.display = 'none';
-             document.getElementById("order").style.display = 'block';
+             document.getElementById("main").style.display = 'none';
+             document.getElementById("form").style.display = 'block';
              document.getElementById("name").style.display = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
          });
          buy.addEventListener("click", ()=> {
