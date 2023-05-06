@@ -80,41 +80,41 @@
         </style>
     </head>
     <body>
-        <div id="main">
+         <div id="main">
             <h1>Онлайн магазин</h1>
-            <img >
             <p>Можете купить эту игру</p>
             <button id="buy">Купить</buttom>
-        </div>
-        <form id="form">
-            <input type="text" id="name" placeholder="Имя">
-            <input type="email" id="email" placeholder="e-mail">
-            <input type="text" id="phone" placeholder="Номер телефона">
+         </div>
+         <form id="form">
+            <input type="text" placeholder="Имя" id="name">
+            <input type="email" placeholder="e-mail" id="email">
+            <input type="text" placeholder="Номер телефона" id="phone">
             <button id="order">Оформить</buttom> 
-        </form>
+         </form>
 
-     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-     <script>
-         let tg=window.Telegram.WebApp;
-         let buy= document.getElementById("buy")
-         let order= document.getElementById("order")
-
-         
-         buy.addEventListener("click", ()=> {
-             document.getElementById("main").style.display = "none";
-             document.getElementById("form").style.display = "block";
-             document.getElementById("name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
-             tg.expand();
-         });
-         order.addEventListener("click", ()=> {
-             let data= {
-             name: document.getElementById("name").value;
-             email: document.getElementById("email").value;
-             number: document.getElementById("phone").value;
-             }
-             tg.close();
-         });
-     </script>
+         <script src="https://telegram.org/js/telegram-web-app.js"></script>
+         <script>
+             let tg= window.Telegram.WebApp;
+             let buy= document.getElementById("buy")
+             let order= document.getElementById("order")
+    
+             
+             buy.addEventListener("click", () => {
+                 document.getElementById("main").style.display = "none";
+                 document.getElementById("form").style.display = "block";
+                 document.getElementById("name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
+                 tg.expand();
+             });
+             
+             order.addEventListener("click", ()=> {
+                 let data= {
+                 name: document.getElementById("name").value,
+                 email: document.getElementById("email").value,
+                 number: document.getElementById("phone").value,
+                 }
+                 tg.close();
+             });
+         </script>
      </body>
 
 </html>
