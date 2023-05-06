@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang = "ru">
     <head> 
-        <meta charset= "UTF-8">
+        <meta charset= "UTF-8" />
         <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie-edge" />
+        <script src="https://telegram.org/js/telegram-web-app.js"></script>
         <title>Shop</title>
         <style>
-            @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap");
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
             
             * {
                 margin: 0;
@@ -16,7 +17,7 @@
             }        
             
             body {
-                font-family: "Monsterrat", sans-serif;
+                font-family: 'Montserrat', sans-serif;
                 font-weight: 200;
                 color: var(--tg-theme-text-color);
                 background: var(--tg-theme-bg-color);
@@ -113,10 +114,11 @@
              
              order.addEventListener("click", ()=> {
                  let data= {
-                 name: document.getElementById("name").value,
-                 email: document.getElementById("email").value,
-                 number: document.getElementById("phone").value,
+                     name: document.getElementById("name").value,
+                     email: document.getElementById("email").value,
+                     number: document.getElementById("phone").value,
                  }
+                 tg.sendData(JSON.stringify(data));
                  tg.close();
              });
          </script>
